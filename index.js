@@ -33,7 +33,7 @@ app.post('/upload', (req, res) => {
     fs.writeFile(p, file, err => {
         const response = {
             success: !err,
-            message: !err ? `File "${name}" created successfully` : `File "${name}" could not be created`,
+            message: !err ? `File "${name}" created successfully` : `File "${name}" could not be created. Error: ${err}`,
             filePath: !err ? `${outputBaseUrl}${name}` : null
         };
 

@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 5000;
-const outputDir = 'public/files';
-const outputBaseUrl = `http://localhost:${port}/files/`;
+const outputDir = 'public';
+const outputBaseUrl = `http://localhost:${port}/`;
 
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);

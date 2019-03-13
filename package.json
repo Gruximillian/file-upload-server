@@ -1,0 +1,22 @@
+{
+    "name": "file-upload-server",
+    "version": "1.0.0",
+    "description": "A simple server that uploads text files and sends back their url for download",
+    "main": "index.js",
+    "repository": "git@github.com:Gruximillian/file-upload-server.git",
+    "author": "Vojislav Grujić",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "node-env-run": "^3.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.10"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    }
+}

@@ -8,14 +8,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const port = process.env.PORT || 5005;
 const outputDir = 'public/files';
-const outputBaseUrl = `http://localhost:5005/files/`;
+const outputBaseUrl = `http://localhost:${port}/files/`;
 
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
 }
 
-const port = process.env.PORT || 5005;
 
 app.get('/', (req, res) => {
     res.send('Pleas use "/upload" endpoint with the POST method to upload a file.');
@@ -33,7 +33,7 @@ app.post('/upload', (req, res) => {
     fs.writeFile(p, file, err => {
         const response = {
             success: !err,
-            message: !err ? `5005: File "${name}" created successfully` : `5005: File "${name}" could not be created`,
+            message: !err ? `File "${name}" created successfully` : `File "${name}" could not be created`,
             filePath: !err ? `${outputBaseUrl}${name}` : null
         };
 
